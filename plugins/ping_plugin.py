@@ -19,4 +19,4 @@ async def ping_pong(event):
         b = datetime.timestamp(datetime.now()) - a
         print(f"[{event.date.strftime('%c')}] [{sender.id}] {sender.username}: {event.pattern_match.string} [{b:.3f}]")
         await message.edit(f"**Pong!**\nTook `{b:.3f}` seconds")
-        log(event)
+        await log(event)
