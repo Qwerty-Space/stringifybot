@@ -35,9 +35,6 @@ class Skip:
 
 @events.register(events.NewMessage(outgoing=False))
 async def stringfy_message(event):
-    if not event.is_private:
-        return
-
     await log(event)
 
     msg = event.message
