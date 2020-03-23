@@ -19,7 +19,6 @@ sys.dont_write_bytecode = True
 config = configparser.ConfigParser()
 config.read_file(open("config.ini"))
 token = config['DEFAULT']['TOKEN']
-phone = config['DEFAULT']['PHONE']
 session_name = config['DEFAULT']['SESSION_NAME']
 api_id = config['DEFAULT']['ID']
 api_hash = config['DEFAULT']['HASH']
@@ -68,7 +67,7 @@ async def help(event):
             await event.respond(help_message, link_preview=False)
 
 
-client.start(phone, bot_token=token)
+client.start(bot_token=token)
 try:
     client.send_message(log_id, "**Bot started at:**  "+datetime.now().strftime("`%c`"))
 except ValueError:
