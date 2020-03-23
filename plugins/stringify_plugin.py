@@ -45,7 +45,7 @@ async def stringfy_message(event):
     yaml_text = bprint(msg, stream=str,
                    max_str_len=64, max_bytes_len=64,
                    indent="  ", skip_predicate=skip,
-                   maximum_depth=4, collapse_singular=True
+                   maximum_depth=4, inline_singular=True
                )
     sub = re.sub(r"(?m)\n^(\s+).+:$(?!\n?\1\s)$", "", yaml_text)
 
