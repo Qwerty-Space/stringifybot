@@ -12,6 +12,13 @@ from telethon.tl.tlobject import TLObject
 import telethon.tl.types as types
 
 
+def parse_pre(text):
+    text = text.strip()
+    return (
+        text,
+        [types.MessageEntityPre(offset=0, length=len(add_surrogate(text)), language='')]
+    )
+
 class Skip:
     def __init__(self):
         self.items = set()
@@ -21,7 +28,6 @@ class Skip:
             return True
         if key.startswith('_') or callable(val):
             return True
-        # print(key, val)
         if key in {"CONSTRUCTOR_ID", "SUBCLASS_OF_ID", "FileLocationToBeDeprecated"}:
             return True
         if isinstance(val, (types.FileLocationToBeDeprecated, )):
@@ -33,7 +39,7 @@ class Skip:
 
         return False
 
-@events.register(events.NewMessage(outgoing=False))
+@events.register(events.NewMessage())
 async def stringfy_message(event):
     await log(event)
 
@@ -46,4 +52,4 @@ async def stringfy_message(event):
                )
     sub = re.sub(r"(?m)\n^(\s+).+:$(?!\n?\1\s)$", "", yaml_text)
 
-    await event.reply(f"`{sub}`")
+    await event.reply(sub, parse_mode=parse_pre)
