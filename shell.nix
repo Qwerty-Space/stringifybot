@@ -6,10 +6,10 @@ let
       version = "0.6.1";
 
       src = fetchFromGitHub {
-        owner = "Lonami";
+        owner = "udf";
         repo = "bprint";
-        rev = "fada746c3010d2a3c82a0fa12304559d69f9b896";
-        sha256 = "0x4srav3xvng061qfps15icnfj445yy8l72ljljqj0zvcadwrrwv";
+        rev = "4e36f0687bbea1ca3cd5430c8f461792300e3086";
+        sha256 = "0hjlh53lzslv3c6nzd087s9ylvaja0k48ij391j9c7a95s785zvj";
       };
 
       doCheck = false;
