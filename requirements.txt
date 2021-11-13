@@ -1,2 +1,2 @@
 telethon
-beauty-print
+git+https://github.com/udf/bprint
