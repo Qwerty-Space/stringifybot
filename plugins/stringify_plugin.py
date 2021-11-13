@@ -3,13 +3,11 @@ Formatted using [bprint](https://github.com/Lonami/bprint)
 """
 
 import re
-import datetime
 from bprint import bprint
 from .global_functions import log
 
 from telethon import events
 from telethon.utils import add_surrogate
-from telethon.tl.tlobject import TLObject
 import telethon.tl.types as types
 
 
@@ -28,8 +26,6 @@ class Skip:
         if key.startswith('_') or callable(val):
             return True
         if key in {"CONSTRUCTOR_ID", "SUBCLASS_OF_ID", "FileLocationToBeDeprecated"}:
-            return True
-        if isinstance(val, types.FileLocationToBeDeprecated):
             return True
         if not val and key not in ["length", "offset", "user_id"]:
             return True
