@@ -20,7 +20,7 @@ pkgs.mkShell {
   buildInputs = [
     (pkgs.python39.withPackages (ps: with ps; [
       (callPackage bprint {})
-      telethon
+      (callPackage ./telethon.nix {})
     ]))
   ];
 }

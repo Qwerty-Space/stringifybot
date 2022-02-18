@@ -1,2 +1,0 @@
-telethon
-git+https://github.com/udf/bprint

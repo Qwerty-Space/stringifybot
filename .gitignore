@@ -7,10 +7,8 @@ __pycache__/
 *.session
 *.session-journal
 
-# qbot
-config.ini
-*.mp4
-*.part
+# bot
+config.py
 
 # C extensions
 *.so

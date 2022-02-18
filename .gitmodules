@@ -1,0 +1,3 @@
+[submodule "bepis_bot"]
+	path = bepis_bot
+	url = git@github.com:udf/bepis_bot.git
